@@ -146,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Testy jednowymiarowe charakteryzują się mniejszą mocą niż testy wielowymiarowe. Zdarza się, że żaden z testów jednowymiarowych nie odrzuci hipotezy <span class="math inline">\(H_0\)</span>, a test wielowymiarowy tak.</p>
 <p>Testy jednowymiarowe kompletnie ignorują korelacje pomiędzy analizowanymi chechami.</p>
 <center>
-<img src="Timage1.png" class="img-fluid" style="width:50.0%">
+<img src="obrazki/Timage1.png" class="img-fluid" style="width:50.0%">
 </center>
 <p>testy t-Studenta lub ANOVA można stosować osobno dla <span class="math inline">\(w\)</span> lub <span class="math inline">\(h\)</span>. W pożyszym przypadku nie wykryją one istotnych różnic, ponieważ średnie są podobne dla △ i ○ zarówno dla wzrostu, jak i dla wagi. Dopiero jak się spojrzy na obie cechy jednocześnie, to widać różnicę.</p>
 <p>Testy jednowymiarowe: porównanie dwóch lub więcej grup pod względem wielkości pewnej cechy.</p>
@@ -217,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Zakładanie natomiast, że zmienne ze zbioru <span class="math inline">\(Y\)</span> nie wykazuja miedzy soba zaleznosci jest sporym nadużyciem, poniewaz w praktyce często taka zależnosc wystepuje.</p></li>
 </ul>
 <center>
-<img src="Timage2.png" class="img-fluid" style="width:50.0%">
+<img src="obrazki/Timage2.png" class="img-fluid" style="width:50.0%">
 </center>
 <p><br></p>
 </section>
@@ -240,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Korelacje kanoniczne są niezmiennicze ze wzgledu na przekształcenia liniowe.</p></li>
 </ul>
 <center>
-<img src="Timage3.png" class="img-fluid" style="width:70.0%">
+<img src="obrazki/Timage3.png" class="img-fluid" style="width:70.0%">
 </center>
 <p><br></p>
 </section>
@@ -295,8 +295,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="do-czego-służy-i-jak-działa-analiza-dyskryminacyjna" class="level2">
 <h2 class="anchored" data-anchor-id="do-czego-służy-i-jak-działa-analiza-dyskryminacyjna">12. Do czego służy i jak działa analiza dyskryminacyjna?</h2>
-<p>Analiza funkcji dyskryminacyjnej stosowana jest do rozstygania, które zmienne pozwalają w najlepszy sposób wyróżniać (dyskryminować) dwie lub więcej wyłaniających się grup.</p>
-<p>Podstawową ideą analizy dyskryminacyjnej jest rozstrzyganie, czy miedzy grupami istnieje różnica ze względy na średnią pewnej zmiennej, a nazstępnie wykorzystywanie tej zmiennej do okreslenia przynależności do grupy, przy możliwie minimalnych błędach klasyfikacji.</p>
+<p>Analiza funkcji dyskryminacyjnej stosowana jest do rozstrzygania, które zmienne pozwalają w najlepszy sposób wyróżniać (dyskryminować) dwie lub więcej wyłaniających się grup.</p>
+<p>Podstawową ideą analizy dyskryminacyjnej jest rozstrzyganie, czy miedzy grupami istnieje różnica ze względu na średnią pewnej zmiennej, a następnie wykorzystywanie tej zmiennej do okreslenia przynależności do grupy, przy możliwie minimalnych błędach klasyfikacji.</p>
 <p>Przykładowo mamy grupę klientów banku, kótrzy starają się o przyznanie im kredytu. Bank na podstawie danych obejmujących takie informacje o klientach jak: dochód, wartość kredytu w stosunku do wartości inswestycji, staż pracy, wiek kredytobiorcy, liczba rat kredytu i liczba osób w rodzinie, musi zaklasyfikować ich do grupy osoób, które spłacą kredyt, bądź do grupy, która tego kredytu nie spłaci.</p>
 <p><br></p>
 <p>Wyróżniamy dwa etapy analizy dyskryminacyjnej:</p>
@@ -312,12 +312,12 @@ ul.task-list li input[type="checkbox"] {
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Timage4.png" class="img-fluid figure-img"></p>
+<p><img src="obrazki/Timage4.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Przykład działania funkcji dyskryminacyjnych</figcaption><p></p>
 </figure>
 </div>
 </center>
-<p>Algebraicznie oznacza to zastapienie wektora cech <span class="math inline">\(x=(x_1,...,x_m)^T\)</span> kombinacją (zwykle) liniową:</p>
+<p>Algebraicznie oznacza to zastąpienie wektora cech <span class="math inline">\(x=(x_1,...,x_m)^T\)</span> kombinacją (zwykle) liniową:</p>
 <p><span class="math display">\[u = a_1x_1+a_2x_2+...+a_mx_m\]</span></p>
 <p>gdzie <span class="math inline">\(\mathrm{a} = (a_1,...,a_m)^T\)</span> będziemy nazywać wektorem wag dyskryminacyjnych i <span class="math inline">\(x_i = (x_{i1},...,x_{in_i})\)</span> oznacza wartości <span class="math inline">\(i\)</span>-tej cechy w próbie <span class="math inline">\(n_i\)</span>-elementowej.</p>
 <p>Celem jest utworzenie takiej kombinacji liniowej zmiennych niezależnych, która w najlepszy sposób dyskryminuje dwie lub więcej grup określonych <em>a priori</em>. Oznacza to wyznaczenie takich estymatorów współczynników <span class="math inline">\(a_i\)</span>, które maksymalizują zmienność międzygrupową w stosunku do zmienności wewnątrz grupowej.</p>
@@ -341,6 +341,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="podaj-założenia-modelu-analizy-dyskryminacyjnej." class="level2">
 <h2 class="anchored" data-anchor-id="podaj-założenia-modelu-analizy-dyskryminacyjnej.">18. Podaj założenia modelu analizy dyskryminacyjnej.</h2>
+<ul>
+<li><p>Cechy mają w grupach wielowymiarowy rozkład normalny.</p></li>
+<li><p>Macierze wariancji/kowariancji są w grupach homogeniczne.</p></li>
+<li><p>Brak korelacji miedzy średnimi i wariancjami.</p></li>
+<li><p>Brak współliniowości zmiennych wykorzystywanych do dyskryminacji grup - źle uwarunkowana macierz wariancji / kowariancji</p></li>
+<li><p>Rozmiar próby - dobrze, aby przypadków było conajmniej 4-5 razy więcej niż zmiennych uzytych do budowy modelu. Najmniejsza liczebność próby powinna być większa od liczby cech <span class="math inline">\(m\)</span> (ew. <span class="math inline">\(m-2\)</span>). Dobrze też, aby wszystkie grupy były równoliczne.</p></li>
+<li><p>Wartości odstające - podobnie jak inne metody jest wrażliwa na takie punkty. Zawyżają one sztucznie zmienność i wartości średnie co narusza założenia o jednorodności wariancji/kowariancji i braku korelacji średnich i wariancji.</p></li>
+</ul>
 <p><br></p>
 </section>
 <section id="do-czego-służy-analiza-składowych-głównych" class="level2">

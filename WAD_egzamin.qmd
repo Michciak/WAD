@@ -279,7 +279,7 @@ Wyróżniamy dwa etapy analizy dyskryminacyjnej:
 <u>Funkcje dyskryminacyjne</u> - kombinacje liniowe zmiennych niezależnych najlepiej separujące (dyskryminujące) obiekty różnych klas.
 
 <center>
-![Przykład działania funkcji dyskryminacyjnych](Timage4.png)
+![Przykład działania funkcji dyskryminacyjnych](obrazki/Timage4.png)
 </center>
 
 Algebraicznie oznacza to zastąpienie wektora cech $x=(x_1,...,x_m)^T$ kombinacją (zwykle) liniową:
