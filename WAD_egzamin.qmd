@@ -16,8 +16,8 @@ setwd("C:/Users/Michc/Dropbox/Uczelnia/Semestr 5/Wielowymiarowa analiza danych/e
 ```
 
 ```{r printer, eval=FALSE, echo=FALSE, message=FALSE, include=FALSE} 
-image1 <- image_negate(image_read("image4T.png"))
-image_write(image1, path = "Timage4.png", format = "png")
+image1 <- image_negate(image_read("obrazki/image4T.png"))
+image_write(image1, path = "obrazki/Timage4.png", format = "png")
 ```
 
 
@@ -36,7 +36,7 @@ Testy jednowymiarowe charakteryzują się mniejszą mocą niż testy wielowymiar
 Testy jednowymiarowe kompletnie ignorują korelacje pomiędzy analizowanymi chechami.
 
 <center>
-![](Timage1.png){width=50%}
+![](obrazki/Timage1.png){width=50%}
 </center>
 
 testy t-Studenta lub ANOVA można stosować osobno dla $w$ lub $h$. W pożyszym przypadku nie wykryją one istotnych różnic, ponieważ średnie są podobne dla △ i ○ zarówno dla wzrostu, jak i dla wagi. Dopiero jak się spojrzy na obie cechy jednocześnie, to widać różnicę. 
@@ -151,7 +151,7 @@ zaleznosci jest sporym nadużyciem, poniewaz w praktyce często taka
 zależnosc wystepuje.
 
 <center>
-![](Timage2.png){width=50%}
+![](obrazki/Timage2.png){width=50%}
 </center>
 
 <br/>
@@ -185,7 +185,7 @@ $Cov(X,Y) = E(X-\mu)(Y-\nu)'=\Sigma_{XY}=\Sigma_{XX}' \quad [q \times p]$
 - Korelacje kanoniczne są niezmiennicze ze wzgledu na przekształcenia liniowe.
 
 <center>
-![](Timage3.png){width=70%}
+![](obrazki/Timage3.png){width=70%}
 </center>
 
 <br/>
@@ -256,9 +256,9 @@ Mówi nam o tym ile przeciętnej wariancji w jednym zbiorze jest wyjasnione prze
 
 ## 12. Do czego służy i jak działa analiza dyskryminacyjna?
 
-Analiza funkcji dyskryminacyjnej stosowana jest do rozstygania, które zmienne pozwalają w najlepszy sposób wyróżniać (dyskryminować) dwie lub więcej wyłaniających się grup.
+Analiza funkcji dyskryminacyjnej stosowana jest do rozstrzygania, które zmienne pozwalają w najlepszy sposób wyróżniać (dyskryminować) dwie lub więcej wyłaniających się grup.
 
-Podstawową ideą analizy dyskryminacyjnej jest rozstrzyganie, czy miedzy grupami istnieje różnica ze względy na średnią pewnej zmiennej, a nazstępnie wykorzystywanie tej zmiennej do okreslenia przynależności do grupy, przy możliwie minimalnych błędach klasyfikacji.
+Podstawową ideą analizy dyskryminacyjnej jest rozstrzyganie, czy miedzy grupami istnieje różnica ze względu na średnią pewnej zmiennej, a następnie wykorzystywanie tej zmiennej do okreslenia przynależności do grupy, przy możliwie minimalnych błędach klasyfikacji.
 
 Przykładowo mamy grupę klientów banku, kótrzy starają się o przyznanie im kredytu. Bank na podstawie danych obejmujących takie informacje o klientach jak: dochód, wartość kredytu w stosunku do wartości inswestycji, staż pracy, wiek kredytobiorcy, liczba rat kredytu i liczba osób w rodzinie, musi zaklasyfikować ich do grupy osoób, które spłacą kredyt, bądź do grupy, która tego kredytu nie spłaci.
 
@@ -282,7 +282,7 @@ Wyróżniamy dwa etapy analizy dyskryminacyjnej:
 ![Przykład działania funkcji dyskryminacyjnych](Timage4.png)
 </center>
 
-Algebraicznie oznacza to zastapienie wektora cech $x=(x_1,...,x_m)^T$ kombinacją (zwykle) liniową:
+Algebraicznie oznacza to zastąpienie wektora cech $x=(x_1,...,x_m)^T$ kombinacją (zwykle) liniową:
 
 $$u = a_1x_1+a_2x_2+...+a_mx_m$$
 
@@ -318,6 +318,17 @@ Celem jest utworzenie takiej kombinacji liniowej zmiennych niezależnych, która
 
 ## 18. Podaj założenia modelu analizy dyskryminacyjnej.
 
+- Cechy mają w grupach wielowymiarowy rozkład normalny.
+
+- Macierze wariancji/kowariancji są w grupach homogeniczne.
+
+- Brak korelacji miedzy średnimi i wariancjami.
+
+- Brak współliniowości zmiennych wykorzystywanych do dyskryminacji grup - źle uwarunkowana macierz wariancji / kowariancji
+
+- Rozmiar próby - dobrze, aby przypadków było conajmniej 4-5 razy więcej niż zmiennych uzytych do budowy modelu. Najmniejsza liczebność próby powinna być większa od liczby cech $m$ (ew. $m-2$). Dobrze też, aby wszystkie grupy były równoliczne.
+
+- Wartości odstające - podobnie jak inne metody jest wrażliwa na takie punkty. Zawyżają one sztucznie zmienność i wartości średnie co narusza założenia o jednorodności wariancji/kowariancji i braku korelacji średnich i wariancji.
 
 
 <br/>
