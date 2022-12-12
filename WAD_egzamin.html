@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Michał Koziński">
+<meta name="dcterms.date" content="2022-12-12">
+
+<title>WAD_egzamin</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="WAD_egzamin_files/libs/clipboard/clipboard.min.js"></script>
+<script src="WAD_egzamin_files/libs/quarto-html/quarto.js"></script>
+<script src="WAD_egzamin_files/libs/quarto-html/popper.min.js"></script>
+<script src="WAD_egzamin_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="WAD_egzamin_files/libs/quarto-html/anchor.min.js"></script>
+<link href="WAD_egzamin_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="WAD_egzamin_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="WAD_egzamin_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="WAD_egzamin_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="WAD_egzamin_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#zagadnienia-do-przygotowania-na-egzamin-ustny-z-wielowymiarowej-analizy-danych" id="toc-zagadnienia-do-przygotowania-na-egzamin-ustny-z-wielowymiarowej-analizy-danych" class="nav-link active" data-scroll-target="#zagadnienia-do-przygotowania-na-egzamin-ustny-z-wielowymiarowej-analizy-danych">Zagadnienia do przygotowania na egzamin ustny z Wielowymiarowej Analizy Danych</a>
+  <ul class="collapse">
+  <li><a href="#czym-się-różni-test-jednowymiarowy-od-testu-wielowymiarowego" id="toc-czym-się-różni-test-jednowymiarowy-od-testu-wielowymiarowego" class="nav-link" data-scroll-target="#czym-się-różni-test-jednowymiarowy-od-testu-wielowymiarowego">1. Czym się różni test jednowymiarowy od testu wielowymiarowego?</a></li>
+  <li><a href="#wymień-znane-ci-dwa-testy-wielowymiarowe." id="toc-wymień-znane-ci-dwa-testy-wielowymiarowe." class="nav-link" data-scroll-target="#wymień-znane-ci-dwa-testy-wielowymiarowe.">2. Wymień znane Ci dwa testy wielowymiarowe.</a></li>
+  <li><a href="#do-czego-służy-test-manova-i-na-jakiej-zasadzie-działa" id="toc-do-czego-służy-test-manova-i-na-jakiej-zasadzie-działa" class="nav-link" data-scroll-target="#do-czego-służy-test-manova-i-na-jakiej-zasadzie-działa">3. Do czego służy test MANOVA i na jakiej zasadzie działa?</a></li>
+  <li><a href="#wymień-różnice-pomiędzy-regresją-wieloraką-a-analizą-kanoniczną." id="toc-wymień-różnice-pomiędzy-regresją-wieloraką-a-analizą-kanoniczną." class="nav-link" data-scroll-target="#wymień-różnice-pomiędzy-regresją-wieloraką-a-analizą-kanoniczną.">4. Wymień różnice pomiędzy regresją wieloraką a analizą kanoniczną.</a></li>
+  <li><a href="#opisz-zasadę-działania-analizy-kanonicznej." id="toc-opisz-zasadę-działania-analizy-kanonicznej." class="nav-link" data-scroll-target="#opisz-zasadę-działania-analizy-kanonicznej.">5. Opisz zasadę działania analizy kanonicznej.</a></li>
+  <li><a href="#czym-charakteryzują-się-kolejne-pary-zmiennych-kanonicznych" id="toc-czym-charakteryzują-się-kolejne-pary-zmiennych-kanonicznych" class="nav-link" data-scroll-target="#czym-charakteryzują-się-kolejne-pary-zmiennych-kanonicznych">6. Czym charakteryzują się kolejne pary zmiennych kanonicznych?</a></li>
+  <li><a href="#jak-testujemy-istotność-statystyczną-par-kanonicznych" id="toc-jak-testujemy-istotność-statystyczną-par-kanonicznych" class="nav-link" data-scroll-target="#jak-testujemy-istotność-statystyczną-par-kanonicznych">7. Jak testujemy istotność statystyczną par kanonicznych?</a></li>
+  <li><a href="#co-wyrażają-ładunki-czynnikowe-w-analizie-kanonicznej" id="toc-co-wyrażają-ładunki-czynnikowe-w-analizie-kanonicznej" class="nav-link" data-scroll-target="#co-wyrażają-ładunki-czynnikowe-w-analizie-kanonicznej">8. Co wyrażają ładunki czynnikowe w analizie kanonicznej?</a></li>
+  <li><a href="#jak-określamy-poziom-wyjaśnionej-wariancji-w-analizie-kanonicznej" id="toc-jak-określamy-poziom-wyjaśnionej-wariancji-w-analizie-kanonicznej" class="nav-link" data-scroll-target="#jak-określamy-poziom-wyjaśnionej-wariancji-w-analizie-kanonicznej">9. Jak określamy poziom wyjaśnionej wariancji w analizie kanonicznej?</a></li>
+  <li><a href="#czym-jest-redundancja-w-analizie-kanonicznej" id="toc-czym-jest-redundancja-w-analizie-kanonicznej" class="nav-link" data-scroll-target="#czym-jest-redundancja-w-analizie-kanonicznej">10. Czym jest redundancja w analizie kanonicznej?</a></li>
+  <li><a href="#jakie-są-założenia-analizy-kanonicznej" id="toc-jakie-są-założenia-analizy-kanonicznej" class="nav-link" data-scroll-target="#jakie-są-założenia-analizy-kanonicznej">11. Jakie są założenia analizy kanonicznej?</a></li>
+  <li><a href="#do-czego-służy-i-jak-działa-analiza-dyskryminacyjna" id="toc-do-czego-służy-i-jak-działa-analiza-dyskryminacyjna" class="nav-link" data-scroll-target="#do-czego-służy-i-jak-działa-analiza-dyskryminacyjna">12. Do czego służy i jak działa analiza dyskryminacyjna?</a></li>
+  <li><a href="#czym-są-funkcje-dyskryminacyjne" id="toc-czym-są-funkcje-dyskryminacyjne" class="nav-link" data-scroll-target="#czym-są-funkcje-dyskryminacyjne">13. Czym są funkcje dyskryminacyjne?</a></li>
+  <li><a href="#jak-wyznacza-się-wektor-tworzący-funkcje-dyskryminacyjne" id="toc-jak-wyznacza-się-wektor-tworzący-funkcje-dyskryminacyjne" class="nav-link" data-scroll-target="#jak-wyznacza-się-wektor-tworzący-funkcje-dyskryminacyjne">14. Jak wyznacza się wektor tworzący funkcje dyskryminacyjne?</a></li>
+  <li><a href="#jak-określa-się-względną-miarę-siły-dyskryminacyjnej-funkcji-dyskryminacyjnej" id="toc-jak-określa-się-względną-miarę-siły-dyskryminacyjnej-funkcji-dyskryminacyjnej" class="nav-link" data-scroll-target="#jak-określa-się-względną-miarę-siły-dyskryminacyjnej-funkcji-dyskryminacyjnej">15. Jak określa się względną miarę siły dyskryminacyjnej funkcji dyskryminacyjnej?</a></li>
+  <li><a href="#czym-jest-lambda-wilka-w-analizie-dyskryminacyjnej" id="toc-czym-jest-lambda-wilka-w-analizie-dyskryminacyjnej" class="nav-link" data-scroll-target="#czym-jest-lambda-wilka-w-analizie-dyskryminacyjnej">16. Czym jest lambda Wilka w analizie dyskryminacyjnej?</a></li>
+  <li><a href="#czym-jest-cząstkowa-lambda-wilka-w-analizie-dyskryminacyjnej" id="toc-czym-jest-cząstkowa-lambda-wilka-w-analizie-dyskryminacyjnej" class="nav-link" data-scroll-target="#czym-jest-cząstkowa-lambda-wilka-w-analizie-dyskryminacyjnej">17. Czym jest cząstkowa lambda Wilka w analizie dyskryminacyjnej?</a></li>
+  <li><a href="#podaj-założenia-modelu-analizy-dyskryminacyjnej." id="toc-podaj-założenia-modelu-analizy-dyskryminacyjnej." class="nav-link" data-scroll-target="#podaj-założenia-modelu-analizy-dyskryminacyjnej.">18. Podaj założenia modelu analizy dyskryminacyjnej.</a></li>
+  <li><a href="#do-czego-służy-analiza-składowych-głównych" id="toc-do-czego-służy-analiza-składowych-głównych" class="nav-link" data-scroll-target="#do-czego-służy-analiza-składowych-głównych">19. Do czego służy analiza składowych głównych?</a></li>
+  <li><a href="#podaj-interpretację-geometryczną-pca." id="toc-podaj-interpretację-geometryczną-pca." class="nav-link" data-scroll-target="#podaj-interpretację-geometryczną-pca.">20. Podaj interpretację geometryczną PCA.</a></li>
+  <li><a href="#jak-wyznacza-się-kierunki-składowych-głównych" id="toc-jak-wyznacza-się-kierunki-składowych-głównych" class="nav-link" data-scroll-target="#jak-wyznacza-się-kierunki-składowych-głównych">21. Jak wyznacza się kierunki składowych głównych?</a></li>
+  <li><a href="#jak-określa-się-miarę-wyjaśnionej-wariancji-przez-model-pca" id="toc-jak-określa-się-miarę-wyjaśnionej-wariancji-przez-model-pca" class="nav-link" data-scroll-target="#jak-określa-się-miarę-wyjaśnionej-wariancji-przez-model-pca">22. Jak określa się miarę wyjaśnionej wariancji przez model PCA?</a></li>
+  <li><a href="#jakie-znasz-kryteria-doboru-liczby-składowych-głównych" id="toc-jakie-znasz-kryteria-doboru-liczby-składowych-głównych" class="nav-link" data-scroll-target="#jakie-znasz-kryteria-doboru-liczby-składowych-głównych">23. Jakie znasz kryteria doboru liczby składowych głównych?</a></li>
+  <li><a href="#na-czym-polega-analiza-czynnikowa" id="toc-na-czym-polega-analiza-czynnikowa" class="nav-link" data-scroll-target="#na-czym-polega-analiza-czynnikowa">24. Na czym polega analiza czynnikowa?</a></li>
+  <li><a href="#czym-są-zasoby-zmienności-wspólnej-i-zasoby-zmienności-swoistej" id="toc-czym-są-zasoby-zmienności-wspólnej-i-zasoby-zmienności-swoistej" class="nav-link" data-scroll-target="#czym-są-zasoby-zmienności-wspólnej-i-zasoby-zmienności-swoistej">25. Czym są zasoby zmienności wspólnej i zasoby zmienności swoistej?</a></li>
+  <li><a href="#opisz-zasadę-działania-jednej-z-technik-wyznaczania-macierzy-ładunków-czynnikowych." id="toc-opisz-zasadę-działania-jednej-z-technik-wyznaczania-macierzy-ładunków-czynnikowych." class="nav-link" data-scroll-target="#opisz-zasadę-działania-jednej-z-technik-wyznaczania-macierzy-ładunków-czynnikowych.">26. Opisz zasadę działania jednej z technik wyznaczania macierzy ładunków czynnikowych.</a></li>
+  <li><a href="#jakie-znasz-metody-estymacji-wstępnych-oszacowań-zasobów-zmienności-wspólnej" id="toc-jakie-znasz-metody-estymacji-wstępnych-oszacowań-zasobów-zmienności-wspólnej" class="nav-link" data-scroll-target="#jakie-znasz-metody-estymacji-wstępnych-oszacowań-zasobów-zmienności-wspólnej">27. Jakie znasz metody estymacji wstępnych oszacowań zasobów zmienności wspólnej?</a></li>
+  <li><a href="#na-czym-polega-przypadek-heywooda" id="toc-na-czym-polega-przypadek-heywooda" class="nav-link" data-scroll-target="#na-czym-polega-przypadek-heywooda">28. Na czym polega przypadek Heywood’a?</a></li>
+  <li><a href="#jakie-znasz-kryteria-doboru-liczby-czynników" id="toc-jakie-znasz-kryteria-doboru-liczby-czynników" class="nav-link" data-scroll-target="#jakie-znasz-kryteria-doboru-liczby-czynników">29. Jakie znasz kryteria doboru liczby czynników?</a></li>
+  <li><a href="#na-czym-polega-rotacja-układu-w-analizie-czynnikowej" id="toc-na-czym-polega-rotacja-układu-w-analizie-czynnikowej" class="nav-link" data-scroll-target="#na-czym-polega-rotacja-układu-w-analizie-czynnikowej">30. Na czym polega rotacja układu w analizie czynnikowej?</a></li>
+  <li><a href="#wymień-po-jednej-rotacji-ortogonalnej-i-ukośnej." id="toc-wymień-po-jednej-rotacji-ortogonalnej-i-ukośnej." class="nav-link" data-scroll-target="#wymień-po-jednej-rotacji-ortogonalnej-i-ukośnej.">31. Wymień po jednej rotacji ortogonalnej i ukośnej.</a></li>
+  <li><a href="#na-czym-polega-analiza-skupień" id="toc-na-czym-polega-analiza-skupień" class="nav-link" data-scroll-target="#na-czym-polega-analiza-skupień">32. Na czym polega analiza skupień?</a></li>
+  <li><a href="#jakie-warunki-spełnia-podział-twardy" id="toc-jakie-warunki-spełnia-podział-twardy" class="nav-link" data-scroll-target="#jakie-warunki-spełnia-podział-twardy">33. Jakie warunki spełnia podział twardy?</a></li>
+  <li><a href="#czym-się-różnią-grupowania-hierarchiczne-od-niehierarchicznych" id="toc-czym-się-różnią-grupowania-hierarchiczne-od-niehierarchicznych" class="nav-link" data-scroll-target="#czym-się-różnią-grupowania-hierarchiczne-od-niehierarchicznych">34. Czym się różnią grupowania hierarchiczne od niehierarchicznych?</a></li>
+  <li><a href="#opisz-algorytm-grupowania-metodą-k-średnich." id="toc-opisz-algorytm-grupowania-metodą-k-średnich." class="nav-link" data-scroll-target="#opisz-algorytm-grupowania-metodą-k-średnich.">35. Opisz algorytm grupowania metodą k-średnich.</a></li>
+  <li><a href="#czym-są-metody-aglomeracyjne-i-deglomeracyjne" id="toc-czym-są-metody-aglomeracyjne-i-deglomeracyjne" class="nav-link" data-scroll-target="#czym-są-metody-aglomeracyjne-i-deglomeracyjne">36. Czym są metody aglomeracyjne i deglomeracyjne?</a></li>
+  <li><a href="#wymień-co-najmniej-trzy-metryki-stosowane-w-analizie-klastrowej." id="toc-wymień-co-najmniej-trzy-metryki-stosowane-w-analizie-klastrowej." class="nav-link" data-scroll-target="#wymień-co-najmniej-trzy-metryki-stosowane-w-analizie-klastrowej.">37. Wymień co najmniej trzy metryki stosowane w analizie klastrowej.</a></li>
+  <li><a href="#opisz-co-najmniej-trzy-sposoby-aglomeracji." id="toc-opisz-co-najmniej-trzy-sposoby-aglomeracji." class="nav-link" data-scroll-target="#opisz-co-najmniej-trzy-sposoby-aglomeracji.">38. Opisz co najmniej trzy sposoby aglomeracji.</a></li>
+  <li><a href="#jak-przebiega-algorytm-grupowania-hierarchicznego" id="toc-jak-przebiega-algorytm-grupowania-hierarchicznego" class="nav-link" data-scroll-target="#jak-przebiega-algorytm-grupowania-hierarchicznego">39. Jak przebiega algorytm grupowania hierarchicznego?</a></li>
+  <li><a href="#do-czego-służy-analiza-korespondencji" id="toc-do-czego-służy-analiza-korespondencji" class="nav-link" data-scroll-target="#do-czego-służy-analiza-korespondencji">Do czego służy analiza korespondencji?</a></li>
+  <li><a href="#czym-jest-macierz-kontyngencji" id="toc-czym-jest-macierz-kontyngencji" class="nav-link" data-scroll-target="#czym-jest-macierz-kontyngencji">41. Czym jest macierz kontyngencji?</a></li>
+  <li><a href="#czym-jest-macierz-korespondencji" id="toc-czym-jest-macierz-korespondencji" class="nav-link" data-scroll-target="#czym-jest-macierz-korespondencji">42. Czym jest macierz korespondencji?</a></li>
+  <li><a href="#wymień-po-dwie-miary-zależności-dla-skal-nominalnej-i-porządkowej." id="toc-wymień-po-dwie-miary-zależności-dla-skal-nominalnej-i-porządkowej." class="nav-link" data-scroll-target="#wymień-po-dwie-miary-zależności-dla-skal-nominalnej-i-porządkowej.">43. Wymień po dwie miary zależności dla skal nominalnej i porządkowej.</a></li>
+  <li><a href="#czym-są-masy-wierszowe-i-kolumnowe" id="toc-czym-są-masy-wierszowe-i-kolumnowe" class="nav-link" data-scroll-target="#czym-są-masy-wierszowe-i-kolumnowe">44. Czym są masy wierszowe i kolumnowe?</a></li>
+  <li><a href="#czym-są-przeciętne-profile-wierszowe-i-kolumnowe" id="toc-czym-są-przeciętne-profile-wierszowe-i-kolumnowe" class="nav-link" data-scroll-target="#czym-są-przeciętne-profile-wierszowe-i-kolumnowe">45. Czym są przeciętne profile wierszowe i kolumnowe?</a></li>
+  <li><a href="#jak-obliczyć-odległość-pomiędzy-profilami" id="toc-jak-obliczyć-odległość-pomiędzy-profilami" class="nav-link" data-scroll-target="#jak-obliczyć-odległość-pomiędzy-profilami">46. Jak obliczyć odległość pomiędzy profilami?</a></li>
+  <li><a href="#czym-jest-inercja-w-analizie-korespondencji" id="toc-czym-jest-inercja-w-analizie-korespondencji" class="nav-link" data-scroll-target="#czym-jest-inercja-w-analizie-korespondencji">47. Czym jest inercja w analizie korespondencji?</a></li>
+  <li><a href="#wymień-miary-jakości-odtworzenia-informacji-w-mapie-percepcji." id="toc-wymień-miary-jakości-odtworzenia-informacji-w-mapie-percepcji." class="nav-link" data-scroll-target="#wymień-miary-jakości-odtworzenia-informacji-w-mapie-percepcji.">48. Wymień miary jakości odtworzenia informacji w mapie percepcji.</a></li>
+  <li><a href="#czym-jest-analiza-log-liniowa-i-do-czego-służy" id="toc-czym-jest-analiza-log-liniowa-i-do-czego-służy" class="nav-link" data-scroll-target="#czym-jest-analiza-log-liniowa-i-do-czego-służy">49. Czym jest analiza log-liniowa i do czego służy?</a></li>
+  <li><a href="#czym-są-zera-próbkowe-i-strukturalne-w-tablicach-kontyngencji" id="toc-czym-są-zera-próbkowe-i-strukturalne-w-tablicach-kontyngencji" class="nav-link" data-scroll-target="#czym-są-zera-próbkowe-i-strukturalne-w-tablicach-kontyngencji">50. Czym są zera próbkowe i strukturalne w tablicach kontyngencji?</a></li>
+  <li><a href="#czym-są-modele-hierarchiczne-w-analizie-log-liniowej" id="toc-czym-są-modele-hierarchiczne-w-analizie-log-liniowej" class="nav-link" data-scroll-target="#czym-są-modele-hierarchiczne-w-analizie-log-liniowej">51. Czym są modele hierarchiczne w analizie log-liniowej?</a></li>
+  <li><a href="#do-czego-służy-skalowanie-wielowymiarowe" id="toc-do-czego-służy-skalowanie-wielowymiarowe" class="nav-link" data-scroll-target="#do-czego-służy-skalowanie-wielowymiarowe">52. Do czego służy skalowanie wielowymiarowe?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">WAD_egzamin</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michał Koziński </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 12, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="zagadnienia-do-przygotowania-na-egzamin-ustny-z-wielowymiarowej-analizy-danych" class="level1">
+<h1>Zagadnienia do przygotowania na egzamin ustny z Wielowymiarowej Analizy Danych</h1>
+<hr>
+<p><br></p>
+<section id="czym-się-różni-test-jednowymiarowy-od-testu-wielowymiarowego" class="level2">
+<h2 class="anchored" data-anchor-id="czym-się-różni-test-jednowymiarowy-od-testu-wielowymiarowego">1. Czym się różni test jednowymiarowy od testu wielowymiarowego?</h2>
+<p>Użycie p testów jednowymiarowych powoduje niekontrolowany wzrost błędu I rodzaju.</p>
+<p>Testy jednowymiarowe charakteryzują się mniejszą mocą niż testy wielowymiarowe. Zdarza się, że żaden z testów jednowymiarowych nie odrzuci hipotezy <span class="math inline">\(H_0\)</span>, a test wielowymiarowy tak.</p>
+<p>Testy jednowymiarowe kompletnie ignorują korelacje pomiędzy analizowanymi chechami.</p>
+<center>
+<img src="Timage1.png" class="img-fluid" style="width:50.0%">
+</center>
+<p>testy t-Studenta lub ANOVA można stosować osobno dla <span class="math inline">\(w\)</span> lub <span class="math inline">\(h\)</span>. W pożyszym przypadku nie wykryją one istotnych różnic, ponieważ średnie są podobne dla △ i ○ zarówno dla wzrostu, jak i dla wagi. Dopiero jak się spojrzy na obie cechy jednocześnie, to widać różnicę.</p>
+<p>Testy jednowymiarowe: porównanie dwóch lub więcej grup pod względem wielkości pewnej cechy.</p>
+<p>Testy wielowymairowe: porównanie dówych lub więcej grup pod względem wielu cech.</p>
+<p><br></p>
+</section>
+<section id="wymień-znane-ci-dwa-testy-wielowymiarowe." class="level2">
+<h2 class="anchored" data-anchor-id="wymień-znane-ci-dwa-testy-wielowymiarowe.">2. Wymień znane Ci dwa testy wielowymiarowe.</h2>
+<p>- <span class="math inline">\(T^2\)</span> Hotelling’a,</p>
+<p>- Wielowymiarowy test <span class="math inline">\(u=u_0\)</span>,</p>
+<p>- Test jednorodności macierzy kowariancji (test M-Box’a),</p>
+<p>- MANOVA:</p>
+<ul>
+<li><p>Lambda Wilka,</p></li>
+<li><p>Test Roy’a,</p></li>
+<li><p>Test Pillai’a,</p></li>
+<li><p>Test Hotelling’a-Lawley’a.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="do-czego-służy-test-manova-i-na-jakiej-zasadzie-działa" class="level2">
+<h2 class="anchored" data-anchor-id="do-czego-służy-test-manova-i-na-jakiej-zasadzie-działa">3. Do czego służy test MANOVA i na jakiej zasadzie działa?</h2>
+<p>MANOVA (Multivariante ANalysis Of VAriance)</p>
+<ul>
+<li><p>wielowymiarowa analiza wariancji</p></li>
+<li><p>uogólnienie testów wielowymiarowych Hotellinga.</p></li>
+</ul>
+<center>
+<p><span class="math inline">\(H_0\)</span>: &nbsp; <span class="math inline">\(u_1=u_2=...=u_k\)</span></p>
+<span class="math inline">\(H_1\)</span>: &nbsp; co najmniej dwie średnie <span class="math inline">\(u_j\)</span> nie są równe
+</center>
+<p><br></p>
+<p>Przez analogię do jednowymiarowej analizy wariancji test opiera się na porównaniu zmienności międzygrupowej i wewnątrzgrupowej</p>
+<p><span class="math display">\[H=n\sum\limits_{i=1}\limits^{k}(y_{i\cdot}-y_{\cdot\cdot})(y_{i\cdot}-y_{\cdot\cdot})'\]</span></p>
+<p><span class="math display">\[E=\sum\limits_{i=1}\limits^{k}\sum\limits_{j=1}\limits^{n}(y_{ij}-y_{i\cdot})(y_{ij}-y_{i\cdot})'\]</span> <br></p>
+<p>Cztery wersje MANOVA:</p>
+<ul>
+<li><p>Lambda Wilka</p>
+<p><span class="math display">\[\Lambda = \frac{|E|}{|E+H|}\]</span></p>
+<p>Odrzucamy <span class="math inline">\(H_0\)</span>, gdy <span class="math inline">\(\Lambda \leq \Lambda_{\alpha,p,v_H,v_E}\)</span>.</p></li>
+<li><p>Test Roy’a</p>
+<p>Poszukiwanie takiego kierunku, aby stosunek wariancji międzygrupowej do wewnątrzgrupowej był jak największy.</p>
+<p><span class="math inline">\(\lambda_1\)</span> - największa wartość własna macierzy <span class="math inline">\(E^{-1}H\)</span></p>
+<p><span class="math display">\[\Theta = \frac{\lambda_1}{1+\lambda_1}\]</span></p>
+<p>odrzucamy <span class="math inline">\(H_0\)</span>, jeśli <span class="math inline">\(\Theta \geq \Theta_{\alpha,s,m,N}\)</span>,</p>
+<p>gdzie</p>
+<p><span class="math inline">\(s=min(\nu_H,p)\)</span>,</p>
+<p><span class="math inline">\(m = \frac{1}{2(|\nu_H - p|-1)}\)</span>,</p>
+<p><span class="math inline">\(N = \frac{1}{2(\nu_H - p-1)}\)</span>.</p></li>
+<li><p>Test Pillai’a</p>
+<p>Rozwinięcie testu Roy’a, opiera się na wartościach własnych <span class="math inline">\(\lambda_1,\lambda_2,...,\lambda_s,\)</span> mecierzy <span class="math inline">\(E^{-1}H\)</span></p>
+<p><span class="math display">\[V^{(s)}=Tr[(E+H)^{-1}H] = \sum\limits_{i=1}\limits^{s}\frac{\lambda_i}{1+\lambda_i}\]</span></p>
+<p>odrzucamy <span class="math inline">\(H_0\)</span>, gdy <span class="math inline">\(V^{(s)}\geq V^{(s)}_\alpha\)</span>.</p></li>
+<li><p>Test Hotelling’a-Lawley’a</p>
+<p><span class="math display">\[U^{(s)}=Tr(E^{-1}H) = \sum\limits_{i=1}\limits^{s}\lambda_i\]</span></p>
+<p>odrzucamy <span class="math inline">\(H_0\)</span>, jeśli <span class="math inline">\(\frac{\nu_E}{\nu_H}U^{(s)}\)</span> przekraczaja wartosci krytyczne z tabeli Hotelling’a-Lawley’a.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="wymień-różnice-pomiędzy-regresją-wieloraką-a-analizą-kanoniczną." class="level2">
+<h2 class="anchored" data-anchor-id="wymień-różnice-pomiędzy-regresją-wieloraką-a-analizą-kanoniczną.">4. Wymień różnice pomiędzy regresją wieloraką a analizą kanoniczną.</h2>
+<p>Analiza kanoniczna jest naturalnym uogólnikiem modelu regresji wielorakiej.</p>
+<p>Polega na badaniu zależności pomiędzy dwoma zbiorami zmiennych <span class="math inline">\(X \in \mathbb{R}^q\)</span> oraz <span class="math inline">\(Y \in \mathbb{R}^p\)</span></p>
+<p>Analiza kanoniczna ma na celu odnalezienie struktury zależnosci pomiedzy zmiennymi obu zbiorów.</p>
+<p>Czemu zatem nie wykorzystamy analizy regresji wielorakiej dla kazdej zmiennej <span class="math inline">\(Yi \in Y\)</span> ?</p>
+<ul>
+<li><p>Analiza regresji nie uwzgledniałaby wówczas struktury zależnosci pomiędzy zmiennymi zbioru <span class="math inline">\(Y\)</span> .</p></li>
+<li><p>Zakładanie natomiast, że zmienne ze zbioru <span class="math inline">\(Y\)</span> nie wykazuja miedzy soba zaleznosci jest sporym nadużyciem, poniewaz w praktyce często taka zależnosc wystepuje.</p></li>
+</ul>
+<center>
+<img src="Timage2.png" class="img-fluid" style="width:50.0%">
+</center>
+<p><br></p>
+</section>
+<section id="opisz-zasadę-działania-analizy-kanonicznej." class="level2">
+<h2 class="anchored" data-anchor-id="opisz-zasadę-działania-analizy-kanonicznej.">5. Opisz zasadę działania analizy kanonicznej.</h2>
+<p><span class="math display">\[\begin{pmatrix}X \\ Y\end{pmatrix} \sim \left(\begin{pmatrix}\mu \\ \nu\end{pmatrix}, \begin{pmatrix}\Sigma_{XX}, &amp; \Sigma_{XY}\\ \Sigma_{YX}, &amp; \Sigma_{YY}\end{pmatrix}\right)\]</span></p>
+<p>gdzie</p>
+<center>
+<p><span class="math inline">\(Cov(X) = \Sigma_{XX}\)</span> o wymiarze <span class="math inline">\(q \times q\)</span></p>
+<p><span class="math inline">\(Cov(X) = \Sigma_{XX}\)</span> o wymiarze <span class="math inline">\(p \times p\)</span></p>
+<span class="math inline">\(Cov(X,Y) = E(X-\mu)(Y-\nu)'=\Sigma_{XY}=\Sigma_{XX}' \quad [q \times p]\)</span>
+</center>
+<p><br></p>
+<ul>
+<li><p>Analiza kanoniczna zmierza do zidentyfikowania struktory zależności pomiędzy zbiorami zmiennych <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>Realizuje się to poprzez znalezienie pary wektorów maksymalizujących korelację kanoniczną między <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>Na podstawie rozkładu SVD znajdujemy wektory własne macierzy <span class="math inline">\(\Sigma_{XX}^{-\frac{1}{2}}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}\Sigma_{XX}^{-\frac{1}{2}}\)</span> i <span class="math inline">\(\Sigma_{YY}^{-\frac{1}{2}}\Sigma_{YX}\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-\frac{1}{2}}\)</span>, które definiują wektory <span class="math inline">\(a\)</span> i <span class="math inline">\(b\)</span>.</p></li>
+<li><p>Pierwiastki niezerowych wartości własnych wspomnianych macierzy ustawione w ciągu malejącym stanowią korelacje kanoniczne kolejnych par zmiennych kanonicznych.</p></li>
+<li><p>Z rozkładu SVD wynika, że kolejne pary zmiennych kanonicznych są nieskorelowane ze zmiennymi kanonicznymi innych par.</p></li>
+<li><p>Korelacje kanoniczne są niezmiennicze ze wzgledu na przekształcenia liniowe.</p></li>
+</ul>
+<center>
+<img src="Timage3.png" class="img-fluid" style="width:70.0%">
+</center>
+<p><br></p>
+</section>
+<section id="czym-charakteryzują-się-kolejne-pary-zmiennych-kanonicznych" class="level2">
+<h2 class="anchored" data-anchor-id="czym-charakteryzują-się-kolejne-pary-zmiennych-kanonicznych">6. Czym charakteryzują się kolejne pary zmiennych kanonicznych?</h2>
+<ul>
+<li><p>Z rozkładu SVD wynika, że kolejne pary zmiennych kanonicznych są nieskorelowane ze zmiennymi kanonicznymi innych par.</p></li>
+<li><p>Pierwiastki niezerowych wartości własnych macierzy <span class="math inline">\(\Sigma_{XX}^{-\frac{1}{2}}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}\Sigma_{XX}^{-\frac{1}{2}}\)</span> i <span class="math inline">\(\Sigma_{YY}^{-\frac{1}{2}}\Sigma_{YX}\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-\frac{1}{2}}\)</span>, ustawione w ciągu malejącym stanowią korelacje kanoniczne kolejnych par zmiennych kanonicznych.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="jak-testujemy-istotność-statystyczną-par-kanonicznych" class="level2">
+<h2 class="anchored" data-anchor-id="jak-testujemy-istotność-statystyczną-par-kanonicznych">7. Jak testujemy istotność statystyczną par kanonicznych?</h2>
+<p>Do badania nieskorelowania dwóch zbiorów zmiennych mozna wykorzystać test Wilka największej wiarogodności, przy założeniu normalności wielowymiarowej badanej struktury zmiennych</p>
+<p><span class="math display">\[T^{\frac{2}{n}} = |I - S_{YY}^{-1}S_{YX}^{\quad}S_{XX}^{-1}S_{XY}^{\quad}|=\prod\limits_{i=1}^{k}(1-\ell_i)\]</span> gdzie <span class="math inline">\(S_{YY}^{\quad},S_{YX}^{\quad},S_{XX}^{\quad},S_{XY}^{\quad}\)</span> są odpowiednikami macierzy kowariancji <span class="math inline">\(\Sigma_{YY}^{\quad},\Sigma_{YX}^{\quad},\Sigma_{XX}^{\quad},\Sigma_{XY}^{\quad}\)</span> wyliczonymi na podtsawie próby</p>
+<p>oraz <span class="math inline">\(\ell_i\)</span> jako próbkowy wskaźnik <span class="math inline">\(\lambda_i\)</span></p>
+<p><br></p>
+<ul>
+<li><p>Test Bartletta</p>
+<p>Rozkład powyższej statystyki testowej jest skomplikowany, dlatego Bartlett wprowadził wzór aproksymacyjny dla dużych <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[-\left[n - \frac{p+q+3}{2}\right]log\prod\limits_{i=1}^{k}(1-\ell_i)\sim \chi_{pq}^{2}\]</span></p>
+<p>Do testowania hipotezy, że współczynniki korelacji kanonicznych są niezerowe po usunięciu pierwszych <span class="math inline">\(s\)</span> pierwiastków (zmiennych kanonicznych) używamy statystki:</p>
+<p><span class="math display">\[-\left[n - \frac{p+q+3}{2}\right]log\prod\limits_{i=s+1}^{k}(1-\ell_i)\sim \chi_{(p-s)(q-s)}^{2}\]</span></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="co-wyrażają-ładunki-czynnikowe-w-analizie-kanonicznej" class="level2">
+<h2 class="anchored" data-anchor-id="co-wyrażają-ładunki-czynnikowe-w-analizie-kanonicznej">8. Co wyrażają ładunki czynnikowe w analizie kanonicznej?</h2>
+<p>Ładunki czynnikowe wyrażają <u>korelację między zmiennymi kanonicznymi, a poszczególnymi zmiennymi danego zbioru danych</u> (im wyższe tym silnej dana zmienna pierwotna oddziaływuje na zmienną kanoniczną).</p>
+<p><br></p>
+</section>
+<section id="jak-określamy-poziom-wyjaśnionej-wariancji-w-analizie-kanonicznej" class="level2">
+<h2 class="anchored" data-anchor-id="jak-określamy-poziom-wyjaśnionej-wariancji-w-analizie-kanonicznej">9. Jak określamy poziom wyjaśnionej wariancji w analizie kanonicznej?</h2>
+<p>Poziom wyjaśnionej wariancji okreslamy za pomocą <u>współczynnika determinacji</u>. Jest on średnią kwadratów ładunków czynnikowych, która oznacza ile procent zmienności wyjasnia średnio dana zmienna kanoniczna w tym zbiorze danych.</p>
+<p><br></p>
+</section>
+<section id="czym-jest-redundancja-w-analizie-kanonicznej" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-redundancja-w-analizie-kanonicznej">10. Czym jest redundancja w analizie kanonicznej?</h2>
+<p><u>Redundancja</u> - kwadrat korelacji kanonicznej pomnożony przez wariancję wyodrębnioną danej zmiennej kanonicznej.</p>
+<p>Mówi nam o tym ile przeciętnej wariancji w jednym zbiorze jest wyjasnione przez daną zmienną kanoniczną przy drugim zbiorze. Inaczej mówiąc dowiemy się z tego wskaźnika jak nadmiarowy jest jeden zbiór zmiennych przy takim, a nie innym składzie zmiennych w drugim zbiorze.</p>
+<p><br></p>
+</section>
+<section id="jakie-są-założenia-analizy-kanonicznej" class="level2">
+<h2 class="anchored" data-anchor-id="jakie-są-założenia-analizy-kanonicznej">11. Jakie są założenia analizy kanonicznej?</h2>
+<ul>
+<li><p>Wszystkie rozkłady zmiennych populacji z której pobieramy próbe są wielowymiarowe normalne (konsekwencje naruszenia tego założenia nie są znane).</p></li>
+<li><p>Aby wyniki były rzetelne, zalecane jest aby liczba przypadków branych do analizy była dwudziestokrotnie większa niż liczba zmiennych.</p></li>
+<li><p>Zmienne w obu zbiorach nie powinny być wspóliniowe.</p></li>
+<li><p>Analiza kanoniczna jest wrażliwa na punkty odstające, które mogą zniekształcić znacząco wynik analiz.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="do-czego-służy-i-jak-działa-analiza-dyskryminacyjna" class="level2">
+<h2 class="anchored" data-anchor-id="do-czego-służy-i-jak-działa-analiza-dyskryminacyjna">12. Do czego służy i jak działa analiza dyskryminacyjna?</h2>
+<p>Analiza funkcji dyskryminacyjnej stosowana jest do rozstygania, które zmienne pozwalają w najlepszy sposób wyróżniać (dyskryminować) dwie lub więcej wyłaniających się grup.</p>
+<p>Podstawową ideą analizy dyskryminacyjnej jest rozstrzyganie, czy miedzy grupami istnieje różnica ze względy na średnią pewnej zmiennej, a nazstępnie wykorzystywanie tej zmiennej do okreslenia przynależności do grupy, przy możliwie minimalnych błędach klasyfikacji.</p>
+<p>Przykładowo mamy grupę klientów banku, kótrzy starają się o przyznanie im kredytu. Bank na podstawie danych obejmujących takie informacje o klientach jak: dochód, wartość kredytu w stosunku do wartości inswestycji, staż pracy, wiek kredytobiorcy, liczba rat kredytu i liczba osób w rodzinie, musi zaklasyfikować ich do grupy osoób, które spłacą kredyt, bądź do grupy, która tego kredytu nie spłaci.</p>
+<p><br></p>
+<p>Wyróżniamy dwa etapy analizy dyskryminacyjnej:</p>
+<ol type="1">
+<li><p>Etap uczenia, gdzie znajdujemy reguły klasyfikacyjne w oparciu o tzw. zbiór uczący.</p></li>
+<li><p>Etap klasyfikacji, w którym w oparciu o wyróżnione cechy dokonujemy klasyfikacji obiektów, których przynaleznośc jest nam nieznana.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="czym-są-funkcje-dyskryminacyjne" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-funkcje-dyskryminacyjne">13. Czym są funkcje dyskryminacyjne?</h2>
+<p><u>Funkcje dyskryminacyjne</u> - kombinacje liniowe zmiennych niezależnych najlepiej separujące (dyskryminujące) obiekty różnych klas.</p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Timage4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Przykład działania funkcji dyskryminacyjnych</figcaption><p></p>
+</figure>
+</div>
+</center>
+<p>Algebraicznie oznacza to zastapienie wektora cech <span class="math inline">\(x=(x_1,...,x_m)^T\)</span> kombinacją (zwykle) liniową:</p>
+<p><span class="math display">\[u = a_1x_1+a_2x_2+...+a_mx_m\]</span></p>
+<p>gdzie <span class="math inline">\(\mathrm{a} = (a_1,...,a_m)^T\)</span> będziemy nazywać wektorem wag dyskryminacyjnych i <span class="math inline">\(x_i = (x_{i1},...,x_{in_i})\)</span> oznacza wartości <span class="math inline">\(i\)</span>-tej cechy w próbie <span class="math inline">\(n_i\)</span>-elementowej.</p>
+<p>Celem jest utworzenie takiej kombinacji liniowej zmiennych niezależnych, która w najlepszy sposób dyskryminuje dwie lub więcej grup określonych <em>a priori</em>. Oznacza to wyznaczenie takich estymatorów współczynników <span class="math inline">\(a_i\)</span>, które maksymalizują zmienność międzygrupową w stosunku do zmienności wewnątrz grupowej.</p>
+<p><br></p>
+</section>
+<section id="jak-wyznacza-się-wektor-tworzący-funkcje-dyskryminacyjne" class="level2">
+<h2 class="anchored" data-anchor-id="jak-wyznacza-się-wektor-tworzący-funkcje-dyskryminacyjne">14. Jak wyznacza się wektor tworzący funkcje dyskryminacyjne?</h2>
+<p><br></p>
+</section>
+<section id="jak-określa-się-względną-miarę-siły-dyskryminacyjnej-funkcji-dyskryminacyjnej" class="level2">
+<h2 class="anchored" data-anchor-id="jak-określa-się-względną-miarę-siły-dyskryminacyjnej-funkcji-dyskryminacyjnej">15. Jak określa się względną miarę siły dyskryminacyjnej funkcji dyskryminacyjnej?</h2>
+<p><br></p>
+</section>
+<section id="czym-jest-lambda-wilka-w-analizie-dyskryminacyjnej" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-lambda-wilka-w-analizie-dyskryminacyjnej">16. Czym jest lambda Wilka w analizie dyskryminacyjnej?</h2>
+<p><br></p>
+</section>
+<section id="czym-jest-cząstkowa-lambda-wilka-w-analizie-dyskryminacyjnej" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-cząstkowa-lambda-wilka-w-analizie-dyskryminacyjnej">17. Czym jest cząstkowa lambda Wilka w analizie dyskryminacyjnej?</h2>
+<p><br></p>
+</section>
+<section id="podaj-założenia-modelu-analizy-dyskryminacyjnej." class="level2">
+<h2 class="anchored" data-anchor-id="podaj-założenia-modelu-analizy-dyskryminacyjnej.">18. Podaj założenia modelu analizy dyskryminacyjnej.</h2>
+<p><br></p>
+</section>
+<section id="do-czego-służy-analiza-składowych-głównych" class="level2">
+<h2 class="anchored" data-anchor-id="do-czego-służy-analiza-składowych-głównych">19. Do czego służy analiza składowych głównych?</h2>
+<p><br></p>
+</section>
+<section id="podaj-interpretację-geometryczną-pca." class="level2">
+<h2 class="anchored" data-anchor-id="podaj-interpretację-geometryczną-pca.">20. Podaj interpretację geometryczną PCA.</h2>
+<p><br></p>
+</section>
+<section id="jak-wyznacza-się-kierunki-składowych-głównych" class="level2">
+<h2 class="anchored" data-anchor-id="jak-wyznacza-się-kierunki-składowych-głównych">21. Jak wyznacza się kierunki składowych głównych?</h2>
+<p><br></p>
+</section>
+<section id="jak-określa-się-miarę-wyjaśnionej-wariancji-przez-model-pca" class="level2">
+<h2 class="anchored" data-anchor-id="jak-określa-się-miarę-wyjaśnionej-wariancji-przez-model-pca">22. Jak określa się miarę wyjaśnionej wariancji przez model PCA?</h2>
+<p><br></p>
+</section>
+<section id="jakie-znasz-kryteria-doboru-liczby-składowych-głównych" class="level2">
+<h2 class="anchored" data-anchor-id="jakie-znasz-kryteria-doboru-liczby-składowych-głównych">23. Jakie znasz kryteria doboru liczby składowych głównych?</h2>
+<p><br></p>
+</section>
+<section id="na-czym-polega-analiza-czynnikowa" class="level2">
+<h2 class="anchored" data-anchor-id="na-czym-polega-analiza-czynnikowa">24. Na czym polega analiza czynnikowa?</h2>
+<p><br></p>
+</section>
+<section id="czym-są-zasoby-zmienności-wspólnej-i-zasoby-zmienności-swoistej" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-zasoby-zmienności-wspólnej-i-zasoby-zmienności-swoistej">25. Czym są zasoby zmienności wspólnej i zasoby zmienności swoistej?</h2>
+<p><br></p>
+</section>
+<section id="opisz-zasadę-działania-jednej-z-technik-wyznaczania-macierzy-ładunków-czynnikowych." class="level2">
+<h2 class="anchored" data-anchor-id="opisz-zasadę-działania-jednej-z-technik-wyznaczania-macierzy-ładunków-czynnikowych.">26. Opisz zasadę działania jednej z technik wyznaczania macierzy ładunków czynnikowych.</h2>
+<p><br></p>
+</section>
+<section id="jakie-znasz-metody-estymacji-wstępnych-oszacowań-zasobów-zmienności-wspólnej" class="level2">
+<h2 class="anchored" data-anchor-id="jakie-znasz-metody-estymacji-wstępnych-oszacowań-zasobów-zmienności-wspólnej">27. Jakie znasz metody estymacji wstępnych oszacowań zasobów zmienności wspólnej?</h2>
+<p><br></p>
+</section>
+<section id="na-czym-polega-przypadek-heywooda" class="level2">
+<h2 class="anchored" data-anchor-id="na-czym-polega-przypadek-heywooda">28. Na czym polega przypadek Heywood’a?</h2>
+<p><br></p>
+</section>
+<section id="jakie-znasz-kryteria-doboru-liczby-czynników" class="level2">
+<h2 class="anchored" data-anchor-id="jakie-znasz-kryteria-doboru-liczby-czynników">29. Jakie znasz kryteria doboru liczby czynników?</h2>
+<p><br></p>
+</section>
+<section id="na-czym-polega-rotacja-układu-w-analizie-czynnikowej" class="level2">
+<h2 class="anchored" data-anchor-id="na-czym-polega-rotacja-układu-w-analizie-czynnikowej">30. Na czym polega rotacja układu w analizie czynnikowej?</h2>
+<p><br></p>
+</section>
+<section id="wymień-po-jednej-rotacji-ortogonalnej-i-ukośnej." class="level2">
+<h2 class="anchored" data-anchor-id="wymień-po-jednej-rotacji-ortogonalnej-i-ukośnej.">31. Wymień po jednej rotacji ortogonalnej i ukośnej.</h2>
+<p><br></p>
+</section>
+<section id="na-czym-polega-analiza-skupień" class="level2">
+<h2 class="anchored" data-anchor-id="na-czym-polega-analiza-skupień">32. Na czym polega analiza skupień?</h2>
+<p><br></p>
+</section>
+<section id="jakie-warunki-spełnia-podział-twardy" class="level2">
+<h2 class="anchored" data-anchor-id="jakie-warunki-spełnia-podział-twardy">33. Jakie warunki spełnia podział twardy?</h2>
+<p><br></p>
+</section>
+<section id="czym-się-różnią-grupowania-hierarchiczne-od-niehierarchicznych" class="level2">
+<h2 class="anchored" data-anchor-id="czym-się-różnią-grupowania-hierarchiczne-od-niehierarchicznych">34. Czym się różnią grupowania hierarchiczne od niehierarchicznych?</h2>
+<p><br></p>
+</section>
+<section id="opisz-algorytm-grupowania-metodą-k-średnich." class="level2">
+<h2 class="anchored" data-anchor-id="opisz-algorytm-grupowania-metodą-k-średnich.">35. Opisz algorytm grupowania metodą k-średnich.</h2>
+<p><br></p>
+</section>
+<section id="czym-są-metody-aglomeracyjne-i-deglomeracyjne" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-metody-aglomeracyjne-i-deglomeracyjne">36. Czym są metody aglomeracyjne i deglomeracyjne?</h2>
+<p><br></p>
+</section>
+<section id="wymień-co-najmniej-trzy-metryki-stosowane-w-analizie-klastrowej." class="level2">
+<h2 class="anchored" data-anchor-id="wymień-co-najmniej-trzy-metryki-stosowane-w-analizie-klastrowej.">37. Wymień co najmniej trzy metryki stosowane w analizie klastrowej.</h2>
+<p><br></p>
+</section>
+<section id="opisz-co-najmniej-trzy-sposoby-aglomeracji." class="level2">
+<h2 class="anchored" data-anchor-id="opisz-co-najmniej-trzy-sposoby-aglomeracji.">38. Opisz co najmniej trzy sposoby aglomeracji.</h2>
+<p><br></p>
+</section>
+<section id="jak-przebiega-algorytm-grupowania-hierarchicznego" class="level2">
+<h2 class="anchored" data-anchor-id="jak-przebiega-algorytm-grupowania-hierarchicznego">39. Jak przebiega algorytm grupowania hierarchicznego?</h2>
+<p><br></p>
+</section>
+<section id="do-czego-służy-analiza-korespondencji" class="level2">
+<h2 class="anchored" data-anchor-id="do-czego-służy-analiza-korespondencji">Do czego służy analiza korespondencji?</h2>
+<p><br></p>
+</section>
+<section id="czym-jest-macierz-kontyngencji" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-macierz-kontyngencji">41. Czym jest macierz kontyngencji?</h2>
+<p><br></p>
+</section>
+<section id="czym-jest-macierz-korespondencji" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-macierz-korespondencji">42. Czym jest macierz korespondencji?</h2>
+<p><br></p>
+</section>
+<section id="wymień-po-dwie-miary-zależności-dla-skal-nominalnej-i-porządkowej." class="level2">
+<h2 class="anchored" data-anchor-id="wymień-po-dwie-miary-zależności-dla-skal-nominalnej-i-porządkowej.">43. Wymień po dwie miary zależności dla skal nominalnej i porządkowej.</h2>
+<p><br></p>
+</section>
+<section id="czym-są-masy-wierszowe-i-kolumnowe" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-masy-wierszowe-i-kolumnowe">44. Czym są masy wierszowe i kolumnowe?</h2>
+<p><br></p>
+</section>
+<section id="czym-są-przeciętne-profile-wierszowe-i-kolumnowe" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-przeciętne-profile-wierszowe-i-kolumnowe">45. Czym są przeciętne profile wierszowe i kolumnowe?</h2>
+<p><br></p>
+</section>
+<section id="jak-obliczyć-odległość-pomiędzy-profilami" class="level2">
+<h2 class="anchored" data-anchor-id="jak-obliczyć-odległość-pomiędzy-profilami">46. Jak obliczyć odległość pomiędzy profilami?</h2>
+<p><br></p>
+</section>
+<section id="czym-jest-inercja-w-analizie-korespondencji" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-inercja-w-analizie-korespondencji">47. Czym jest inercja w analizie korespondencji?</h2>
+<p><br></p>
+</section>
+<section id="wymień-miary-jakości-odtworzenia-informacji-w-mapie-percepcji." class="level2">
+<h2 class="anchored" data-anchor-id="wymień-miary-jakości-odtworzenia-informacji-w-mapie-percepcji.">48. Wymień miary jakości odtworzenia informacji w mapie percepcji.</h2>
+<p><br></p>
+</section>
+<section id="czym-jest-analiza-log-liniowa-i-do-czego-służy" class="level2">
+<h2 class="anchored" data-anchor-id="czym-jest-analiza-log-liniowa-i-do-czego-służy">49. Czym jest analiza log-liniowa i do czego służy?</h2>
+<p><br></p>
+</section>
+<section id="czym-są-zera-próbkowe-i-strukturalne-w-tablicach-kontyngencji" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-zera-próbkowe-i-strukturalne-w-tablicach-kontyngencji">50. Czym są zera próbkowe i strukturalne w tablicach kontyngencji?</h2>
+<p><br></p>
+</section>
+<section id="czym-są-modele-hierarchiczne-w-analizie-log-liniowej" class="level2">
+<h2 class="anchored" data-anchor-id="czym-są-modele-hierarchiczne-w-analizie-log-liniowej">51. Czym są modele hierarchiczne w analizie log-liniowej?</h2>
+<p><br></p>
+</section>
+<section id="do-czego-służy-skalowanie-wielowymiarowe" class="level2">
+<h2 class="anchored" data-anchor-id="do-czego-służy-skalowanie-wielowymiarowe">52. Do czego służy skalowanie wielowymiarowe?</h2>
+<p><br></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

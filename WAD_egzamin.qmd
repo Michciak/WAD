@@ -1,0 +1,528 @@
+---
+title: "WAD_egzamin"
+author: "Michał Koziński"
+format: 
+  html:
+    page-layout: full
+    toc: true
+    toc-depth: 3
+    theme: darkly
+date: "`r Sys.Date()`"
+---
+
+```{r config, echo=FALSE, include=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+library(magick)
+setwd("C:/Users/Michc/Dropbox/Uczelnia/Semestr 5/Wielowymiarowa analiza danych/egzamin")
+```
+
+```{r printer, eval=FALSE, echo=FALSE, message=FALSE, include=FALSE} 
+image1 <- image_negate(image_read("image4T.png"))
+image_write(image1, path = "Timage4.png", format = "png")
+```
+
+
+# Zagadnienia do przygotowania na egzamin ustny z Wielowymiarowej Analizy Danych
+
+___
+
+<br/>
+
+## 1. Czym się różni test jednowymiarowy od testu wielowymiarowego?
+
+Użycie p testów jednowymiarowych powoduje niekontrolowany wzrost błędu I rodzaju.
+
+Testy jednowymiarowe charakteryzują się mniejszą mocą niż testy wielowymiarowe. Zdarza się, że żaden z testów jednowymiarowych nie odrzuci hipotezy $H_0$, a test wielowymiarowy tak.
+
+Testy jednowymiarowe kompletnie ignorują korelacje pomiędzy analizowanymi chechami.
+
+<center>
+![](Timage1.png){width=50%}
+</center>
+
+testy t-Studenta lub ANOVA można stosować osobno dla $w$ lub $h$. W pożyszym przypadku nie wykryją one istotnych różnic, ponieważ średnie są podobne dla △ i ○ zarówno dla wzrostu, jak i dla wagi. Dopiero jak się spojrzy na obie cechy jednocześnie, to widać różnicę. 
+
+Testy jednowymiarowe: porównanie dwóch lub więcej grup pod względem wielkości pewnej cechy.
+
+Testy wielowymairowe: porównanie dówych lub więcej grup pod względem wielu cech.
+
+<br/>
+
+## 2. Wymień znane Ci dwa testy wielowymiarowe.
+
+\- $T^2$ Hotelling'a,
+
+\- Wielowymiarowy test $u=u_0$,
+
+\- Test jednorodności macierzy kowariancji (test M-Box'a), 
+
+\- MANOVA: 
+
+- Lambda Wilka, 
+
+- Test Roy'a, 
+
+- Test Pillai’a, 
+
+- Test Hotelling’a-Lawley’a.
+
+<br/>
+
+## 3. Do czego służy test MANOVA i na jakiej zasadzie działa?
+
+MANOVA (Multivariante ANalysis Of VAriance)
+
+- wielowymiarowa analiza wariancji
+
+- uogólnienie testów wielowymiarowych Hotellinga.
+
+<center>
+$H_0$: &nbsp; $u_1=u_2=...=u_k$ 
+
+$H_1$: &nbsp; co najmniej dwie średnie $u_j$ nie są równe
+</center>
+
+<br/>
+
+Przez analogię do jednowymiarowej analizy wariancji test opiera się na porównaniu zmienności międzygrupowej i wewnątrzgrupowej 
+
+$$H=n\sum\limits_{i=1}\limits^{k}(y_{i\cdot}-y_{\cdot\cdot})(y_{i\cdot}-y_{\cdot\cdot})'$$
+
+$$E=\sum\limits_{i=1}\limits^{k}\sum\limits_{j=1}\limits^{n}(y_{ij}-y_{i\cdot})(y_{ij}-y_{i\cdot})'$$
+<br/>
+
+Cztery wersje MANOVA:
+
+- Lambda Wilka
+
+  $$\Lambda = \frac{|E|}{|E+H|}$$
+ 
+  Odrzucamy $H_0$, gdy $\Lambda \leq \Lambda_{\alpha,p,v_H,v_E}$.
+
+- Test Roy'a
+  
+  Poszukiwanie takiego kierunku, aby stosunek wariancji międzygrupowej do wewnątrzgrupowej był jak największy.
+  
+  $\lambda_1$ - największa wartość własna macierzy $E^{-1}H$
+  
+  $$\Theta = \frac{\lambda_1}{1+\lambda_1}$$
+  
+  odrzucamy $H_0$, jeśli $\Theta \geq \Theta_{\alpha,s,m,N}$, 
+  
+  gdzie 
+  
+  $s=min(\nu_H,p)$, 
+  
+  $m = \frac{1}{2(|\nu_H - p|-1)}$,
+  
+  $N = \frac{1}{2(\nu_H - p-1)}$.
+  
+- Test Pillai’a
+  
+  Rozwinięcie testu Roy'a, opiera się na wartościach własnych $\lambda_1,\lambda_2,...,\lambda_s,$ mecierzy $E^{-1}H$
+  
+  $$V^{(s)}=Tr[(E+H)^{-1}H] = \sum\limits_{i=1}\limits^{s}\frac{\lambda_i}{1+\lambda_i}$$
+  
+  odrzucamy $H_0$, gdy $V^{(s)}\geq V^{(s)}_\alpha$.
+  
+- Test Hotelling’a-Lawley’a
+  
+  $$U^{(s)}=Tr(E^{-1}H) = \sum\limits_{i=1}\limits^{s}\lambda_i$$
+  
+  odrzucamy $H_0$, jeśli $\frac{\nu_E}{\nu_H}U^{(s)}$ przekraczaja wartosci krytyczne z tabeli Hotelling’a-Lawley’a.
+
+<br/>
+
+## 4. Wymień różnice pomiędzy regresją wieloraką a analizą kanoniczną.
+
+Analiza kanoniczna jest naturalnym uogólnikiem modelu regresji wielorakiej.
+
+Polega na badaniu zależności pomiędzy dwoma zbiorami zmiennych $X \in \mathbb{R}^q$ oraz $Y \in \mathbb{R}^p$
+
+Analiza kanoniczna ma na celu odnalezienie struktury zależnosci pomiedzy zmiennymi obu zbiorów.
+
+Czemu zatem nie wykorzystamy analizy regresji wielorakiej dla kazdej
+zmiennej $Yi \in Y$ ?
+
+- Analiza regresji nie uwzgledniałaby wówczas struktury zależnosci pomiędzy
+zmiennymi zbioru $Y$ .
+
+-  Zakładanie natomiast, że zmienne ze zbioru $Y$ nie wykazuja miedzy soba
+zaleznosci jest sporym nadużyciem, poniewaz w praktyce często taka
+zależnosc wystepuje.
+
+<center>
+![](Timage2.png){width=50%}
+</center>
+
+<br/>
+
+## 5. Opisz zasadę działania analizy kanonicznej.
+
+$$\begin{pmatrix}X \\ Y\end{pmatrix} \sim \left(\begin{pmatrix}\mu \\ \nu\end{pmatrix}, \begin{pmatrix}\Sigma_{XX}, & \Sigma_{XY}\\ \Sigma_{YX}, & \Sigma_{YY}\end{pmatrix}\right)$$
+
+gdzie
+
+<center>
+$Cov(X) = \Sigma_{XX}$ o wymiarze $q \times q$
+
+$Cov(X) = \Sigma_{XX}$ o wymiarze $p \times p$
+
+$Cov(X,Y) = E(X-\mu)(Y-\nu)'=\Sigma_{XY}=\Sigma_{XX}' \quad [q \times p]$
+</center>
+
+<br/>
+
+- Analiza kanoniczna zmierza do zidentyfikowania struktory zależności pomiędzy zbiorami zmiennych $X$ i $Y$.
+
+- Realizuje się to poprzez znalezienie pary wektorów maksymalizujących korelację kanoniczną między $X$ i $Y$.
+
+- Na podstawie rozkładu SVD znajdujemy wektory własne macierzy $\Sigma_{XX}^{-\frac{1}{2}}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}\Sigma_{XX}^{-\frac{1}{2}}$ i $\Sigma_{YY}^{-\frac{1}{2}}\Sigma_{YX}\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-\frac{1}{2}}$, które definiują wektory $a$ i $b$.
+
+- Pierwiastki niezerowych wartości własnych wspomnianych macierzy ustawione w ciągu malejącym stanowią korelacje kanoniczne kolejnych par zmiennych kanonicznych.
+
+- Z rozkładu SVD wynika, że kolejne pary zmiennych kanonicznych są nieskorelowane ze zmiennymi kanonicznymi innych par.
+
+- Korelacje kanoniczne są niezmiennicze ze wzgledu na przekształcenia liniowe.
+
+<center>
+![](Timage3.png){width=70%}
+</center>
+
+<br/>
+
+## 6. Czym charakteryzują się kolejne pary zmiennych kanonicznych?
+
+- Z rozkładu SVD wynika, że kolejne pary zmiennych kanonicznych są nieskorelowane ze zmiennymi kanonicznymi innych par.
+
+- Pierwiastki niezerowych wartości własnych macierzy $\Sigma_{XX}^{-\frac{1}{2}}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}\Sigma_{XX}^{-\frac{1}{2}}$ i $\Sigma_{YY}^{-\frac{1}{2}}\Sigma_{YX}\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-\frac{1}{2}}$, ustawione w ciągu malejącym stanowią korelacje kanoniczne kolejnych par zmiennych kanonicznych.
+
+<br/>
+
+## 7. Jak testujemy istotność statystyczną par kanonicznych?
+
+Do badania nieskorelowania dwóch zbiorów zmiennych mozna wykorzystać test Wilka największej wiarogodności, przy założeniu normalności wielowymiarowej badanej struktury zmiennych
+
+$$T^{\frac{2}{n}} = |I - S_{YY}^{-1}S_{YX}^{\quad}S_{XX}^{-1}S_{XY}^{\quad}|=\prod\limits_{i=1}^{k}(1-\ell_i)$$
+gdzie $S_{YY}^{\quad},S_{YX}^{\quad},S_{XX}^{\quad},S_{XY}^{\quad}$ są odpowiednikami macierzy kowariancji $\Sigma_{YY}^{\quad},\Sigma_{YX}^{\quad},\Sigma_{XX}^{\quad},\Sigma_{XY}^{\quad}$ wyliczonymi na podtsawie próby 
+
+oraz $\ell_i$ jako próbkowy wskaźnik $\lambda_i$
+
+<br/>
+
+- Test Bartletta
+
+  Rozkład powyższej statystyki testowej jest skomplikowany, dlatego Bartlett wprowadził wzór aproksymacyjny dla dużych $n$:
+  
+  $$-\left[n - \frac{p+q+3}{2}\right]log\prod\limits_{i=1}^{k}(1-\ell_i)\sim \chi_{pq}^{2}$$
+  
+  Do testowania hipotezy, że współczynniki korelacji kanonicznych są niezerowe po usunięciu pierwszych $s$ pierwiastków (zmiennych kanonicznych) używamy statystki:
+  
+  $$-\left[n - \frac{p+q+3}{2}\right]log\prod\limits_{i=s+1}^{k}(1-\ell_i)\sim \chi_{(p-s)(q-s)}^{2}$$
+
+<br/>
+
+## 8. Co wyrażają ładunki czynnikowe w analizie kanonicznej?
+
+Ładunki czynnikowe wyrażają <u>korelację między zmiennymi kanonicznymi, a poszczególnymi zmiennymi danego zbioru danych</u> (im wyższe tym silnej dana zmienna pierwotna oddziaływuje na zmienną kanoniczną).
+
+<br/>
+
+## 9. Jak określamy poziom wyjaśnionej wariancji w analizie kanonicznej?
+
+Poziom wyjaśnionej wariancji okreslamy za pomocą <u>współczynnika determinacji</u>. Jest on średnią kwadratów ładunków czynnikowych, która oznacza ile procent zmienności wyjasnia średnio dana zmienna kanoniczna w tym zbiorze danych.
+
+<br/>
+
+## 10. Czym jest redundancja w analizie kanonicznej?
+
+<u>Redundancja</u> - kwadrat korelacji kanonicznej pomnożony przez wariancję
+wyodrębnioną danej zmiennej kanonicznej.
+
+Mówi nam o tym ile przeciętnej wariancji w jednym zbiorze jest wyjasnione przez daną zmienną kanoniczną przy drugim zbiorze. Inaczej mówiąc dowiemy się z tego wskaźnika jak nadmiarowy jest jeden zbiór zmiennych przy takim, a nie innym składzie zmiennych w drugim zbiorze.
+
+<br/>
+
+## 11. Jakie są założenia analizy kanonicznej?
+
+- Wszystkie rozkłady zmiennych populacji z której pobieramy próbe są wielowymiarowe normalne (konsekwencje naruszenia tego założenia nie są znane).
+
+- Aby wyniki były rzetelne, zalecane jest aby liczba przypadków branych do analizy była dwudziestokrotnie większa niż liczba zmiennych.
+
+- Zmienne w obu zbiorach nie powinny być wspóliniowe.
+
+- Analiza kanoniczna jest wrażliwa na punkty odstające, które mogą zniekształcić znacząco wynik analiz.
+
+<br/>
+
+## 12. Do czego służy i jak działa analiza dyskryminacyjna?
+
+Analiza funkcji dyskryminacyjnej stosowana jest do rozstygania, które zmienne pozwalają w najlepszy sposób wyróżniać (dyskryminować) dwie lub więcej wyłaniających się grup.
+
+Podstawową ideą analizy dyskryminacyjnej jest rozstrzyganie, czy miedzy grupami istnieje różnica ze względy na średnią pewnej zmiennej, a nazstępnie wykorzystywanie tej zmiennej do okreslenia przynależności do grupy, przy możliwie minimalnych błędach klasyfikacji.
+
+Przykładowo mamy grupę klientów banku, kótrzy starają się o przyznanie im kredytu. Bank na podstawie danych obejmujących takie informacje o klientach jak: dochód, wartość kredytu w stosunku do wartości inswestycji, staż pracy, wiek kredytobiorcy, liczba rat kredytu i liczba osób w rodzinie, musi zaklasyfikować ich do grupy osoób, które spłacą kredyt, bądź do grupy, która tego kredytu nie spłaci.
+
+<br/>
+
+Wyróżniamy dwa etapy analizy dyskryminacyjnej:
+
+1. Etap uczenia, gdzie znajdujemy reguły klasyfikacyjne w oparciu o tzw. zbiór uczący.
+
+2. Etap klasyfikacji, w którym w oparciu o wyróżnione cechy dokonujemy klasyfikacji obiektów, których przynaleznośc jest nam nieznana.
+
+
+
+<br/>
+
+## 13. Czym są funkcje dyskryminacyjne?
+
+<u>Funkcje dyskryminacyjne</u> - kombinacje liniowe zmiennych niezależnych najlepiej separujące (dyskryminujące) obiekty różnych klas.
+
+<center>
+![Przykład działania funkcji dyskryminacyjnych](Timage4.png)
+</center>
+
+Algebraicznie oznacza to zastapienie wektora cech $x=(x_1,...,x_m)^T$ kombinacją (zwykle) liniową:
+
+$$u = a_1x_1+a_2x_2+...+a_mx_m$$
+
+gdzie $\mathrm{a} = (a_1,...,a_m)^T$ będziemy nazywać wektorem wag dyskryminacyjnych i $x_i = (x_{i1},...,x_{in_i})$ oznacza wartości $i$-tej cechy w próbie $n_i$-elementowej.
+
+Celem jest utworzenie takiej kombinacji liniowej zmiennych niezależnych, która w najlepszy sposób dyskryminuje dwie lub więcej grup określonych *a priori*. Oznacza to wyznaczenie takich estymatorów współczynników $a_i$, które maksymalizują zmienność międzygrupową w stosunku do zmienności wewnątrz grupowej.
+
+<br/>
+
+## 14. Jak wyznacza się wektor tworzący funkcje dyskryminacyjne?
+
+
+
+<br/>
+
+## 15. Jak określa się względną miarę siły dyskryminacyjnej funkcji dyskryminacyjnej?
+
+
+
+<br/>
+
+## 16. Czym jest lambda Wilka w analizie dyskryminacyjnej?
+
+
+
+<br/>
+
+## 17. Czym jest cząstkowa lambda Wilka w analizie dyskryminacyjnej?
+
+
+
+<br/>
+
+## 18. Podaj założenia modelu analizy dyskryminacyjnej.
+
+
+
+<br/>
+
+## 19. Do czego służy analiza składowych głównych?
+
+
+
+<br/>
+
+## 20. Podaj interpretację geometryczną PCA.
+
+
+
+<br/>
+
+## 21. Jak wyznacza się kierunki składowych głównych?
+
+
+
+<br/>
+
+## 22. Jak określa się miarę wyjaśnionej wariancji przez model PCA?
+
+
+
+<br/>
+
+## 23. Jakie znasz kryteria doboru liczby składowych głównych?
+
+
+
+<br/>
+
+## 24. Na czym polega analiza czynnikowa?
+
+
+
+<br/>
+
+## 25. Czym są zasoby zmienności wspólnej i zasoby zmienności swoistej?
+
+
+
+<br/>
+
+## 26. Opisz zasadę działania jednej z technik wyznaczania macierzy ładunków czynnikowych.
+
+
+
+<br/>
+
+## 27. Jakie znasz metody estymacji wstępnych oszacowań zasobów zmienności wspólnej?
+
+
+
+<br/>
+
+## 28. Na czym polega przypadek Heywood’a?
+
+
+
+<br/>
+
+## 29. Jakie znasz kryteria doboru liczby czynników?
+
+
+
+<br/>
+
+## 30. Na czym polega rotacja układu w analizie czynnikowej?
+
+
+
+<br/>
+
+## 31. Wymień po jednej rotacji ortogonalnej i ukośnej.
+
+
+
+<br/>
+
+## 32. Na czym polega analiza skupień?
+
+
+
+<br/>
+
+## 33. Jakie warunki spełnia podział twardy?
+
+
+
+<br/>
+
+## 34. Czym się różnią grupowania hierarchiczne od niehierarchicznych?
+
+
+
+<br/>
+
+## 35. Opisz algorytm grupowania metodą k-średnich.
+
+
+
+<br/>
+
+## 36. Czym są metody aglomeracyjne i deglomeracyjne?
+
+
+
+<br/>
+
+## 37. Wymień co najmniej trzy metryki stosowane w analizie klastrowej.
+
+
+
+<br/>
+
+## 38. Opisz co najmniej trzy sposoby aglomeracji.
+
+
+
+<br/>
+
+## 39. Jak przebiega algorytm grupowania hierarchicznego?
+
+
+
+<br/>
+
+##  Do czego służy analiza korespondencji?
+
+
+
+<br/>
+
+## 41. Czym jest macierz kontyngencji?
+
+
+
+<br/>
+
+## 42. Czym jest macierz korespondencji?
+
+
+
+<br/>
+
+## 43. Wymień po dwie miary zależności dla skal nominalnej i porządkowej.
+
+
+
+<br/>
+
+## 44. Czym są masy wierszowe i kolumnowe?
+
+
+
+<br/>
+
+## 45. Czym są przeciętne profile wierszowe i kolumnowe?
+
+
+
+<br/>
+
+## 46. Jak obliczyć odległość pomiędzy profilami?
+
+
+
+<br/>
+
+## 47. Czym jest inercja w analizie korespondencji?
+
+
+
+<br/>
+
+## 48. Wymień miary jakości odtworzenia informacji w mapie percepcji.
+
+
+
+<br/>
+
+## 49. Czym jest analiza log-liniowa i do czego służy?
+
+
+
+<br/>
+
+## 50. Czym są zera próbkowe i strukturalne w tablicach kontyngencji?
+
+
+
+<br/>
+
+## 51. Czym są modele hierarchiczne w analizie log-liniowej?
+
+
+
+<br/>
+
+## 52. Do czego służy skalowanie wielowymiarowe?
+
+
+
+<br/>
+
