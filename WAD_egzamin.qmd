@@ -459,7 +459,7 @@ Celem jest utworzenie takiej kombinacji liniowej zmiennych niezależnych, która
 
 <br/>
 
-##  Do czego służy analiza korespondencji?
+## 40. Do czego służy analiza korespondencji?
 
 
 
